@@ -1,0 +1,48 @@
+:root {
+    counter-reset: h1counter;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+h1 {
+    counter-increment: h1counter;
+    counter-reset: h2counter;
+}
+
+h2 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+    font-size: large;
+}
+
+h2:before {
+    content: counter(h2counter) ".\0000a0\0000a0";
+}
+
+h3 {
+    font-size: medium;
+}
+h3:before {
+    counter-increment: h3counter;
+    content: counter(h2counter) "." counter(h3counter) ".\0000a0\0000a0";
+}
+
+p {
+    font-weight: lighter;
+    
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        margin: none;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        margin-left: 30%;
+        margin-right: 30%;
+        margin-top: 7.5%;
+    }
+}
